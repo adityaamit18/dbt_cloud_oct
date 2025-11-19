@@ -1,0 +1,24 @@
+{% set name = 'ADI' %}
+{% set location = 'Jabalpur' -%}
+
+{{ name }}
+
+Myself {{ name }} and I am from {{ location }}
+
+{% set subject ='dbt' %}
+I do training on {{subject}}
+
+{% set tools = ['dbt','Snowflake','Fivetran','Tableau','Redshift'] %}
+
+Currently we are working with {{tools[0]}} and {{tools[1]}}
+
+{% for tool in tools -%}
+I do training on {{ tool }}
+{%- if tool == 'Redshift' %}
+"That's it"
+{% else %}
+and
+{% endif -%}
+
+{%if loop.last %}"Thats it"{% endif %}
+{% endfor -%}
