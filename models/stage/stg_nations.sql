@@ -5,12 +5,13 @@
 }#}
 {{ 
     config(
-        alias= this.name+ var('v_id')
+        alias= this.name+ var('v_id'),
+        access='public'
     ) 
 }}
 with nation as (
     select 
-        n_nationkey as nation_id,
+        n_nationkey::varchar as nation_id,
         n_name as name,
         n_regionkey as region_id,
         -- n_comment as comment,

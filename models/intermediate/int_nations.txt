@@ -1,8 +1,8 @@
 {{ 
     config(
         materialized='incremental',
-        unique_key='nation_id',
-        on_schema_change='sync_all_columns'
+        unique_key='nation_id'
+        
     ) 
 }}
 
@@ -12,8 +12,8 @@ with nation as (
     region_id,
       nation_id,
        name,
-       comment,
-       jodo_col,
+    --    comment,
+    --    jodo_col,
        updated_at
        from {{ref('stg_nations')}} 
        {% if is_incremental() %}

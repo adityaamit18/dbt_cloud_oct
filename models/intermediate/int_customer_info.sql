@@ -1,0 +1,11 @@
+-- customer_id 
+-- customer_name
+-- nation_id 
+-- first_ordered_at 
+-- last_ordered_at
+-- lifetime_orders
+-- lifetime_tax
+-- lifetime_total
+-- customer_type
+
+-- customer aur lineitem use krna h 

@@ -1,3 +1,11 @@
+{#{ config(
+    tags = 'sample',
+    pre_hook="use warehouse test_wh",
+    post_hook="select * from ANALYTICS.DBT_ATRIVEDI.stg_regions"
+) }#}
+{{ config(
+    tags = 'sample'
+) }}
 with customer as (
     select 
         c_custkey as customer_id,
@@ -9,7 +17,7 @@ with customer as (
         c_mktsegment as market_segment,
         c_comment as comment
     from {{ source('src','customers')}}
-    limit 100
+    -- limit 100
 
 )
 
