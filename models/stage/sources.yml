@@ -11,8 +11,8 @@ sources:
       - name: orders
         config:
           freshness: 
-            warn_after: {count: 3, period: day}
-            error_after: {count: 3, period: day}
+            warn_after: {count: 2, period: day}
+            error_after: {count: 2, period: day}
           loaded_at_field: o_orderdate::timestamp_ntz
       - name: lineitems
       - name: parts
