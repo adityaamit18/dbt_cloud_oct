@@ -3,6 +3,7 @@ sources:
     database: sourcedb
     schema: mk_mall
     tables:
+      - name: partsupps
       - name: customers
       - name: suppliers
       - name: regions

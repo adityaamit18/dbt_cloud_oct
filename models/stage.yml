@@ -1,6 +1,7 @@
 models:
   - name: stg_regions
     description: Table with all region information
+ 
     columns:
       - name: region_id
         description: '{{ doc("Primary_Key") }}'
@@ -11,23 +12,39 @@ models:
         data_tests:  
           - accepted_values:
               arguments:
-                values: ['ASIA', 'AFRICA', 'AMERICA']
+                values: ['ASIA', 'AFRICA', 'AMERICA','EUROPE','MIDDLE EAST','SOUTH EAST']
                 config:
                   store_failures: true
                   schema: error
   - name: stg_nations
     columns:
       - name: nation_id
+        data_type: int
+        constraints:
+          - type: not_null 
         description: '{{ doc("Primary_Key") }}'
         data_tests:
           - not_null
           - unique
       - name: region_id
+        data_type: int
         data_tests:
           - relationships:
               to: ref('stg_regions')
               field: region_id
+      - name: name
+        data_type: string
+      - name: updated_at
+        data_type: timestamp
+    config:
+      group: sales
+      contract: 
+        enforced: true
   - name: stg_customers
+    config:
+      group: sales
+      pre_hook: "alter session set query_tag= 'hooks'"
+
     columns:      
       - name: customer_id
         description: '{{ doc("Primary_Key") }}'

@@ -4,7 +4,8 @@ with source as (
 changed as (
     select
     -- ids
-    concat(l_orderkey,l_linenumber)::number as order_item_id,
+    {{ dbt_utils.generate_surrogate_key(['l_orderkey', 'l_linenumber']) }} order_item_id,
+    -- concat(l_orderkey,l_linenumber)::number as order_item_id,
     l_orderkey as order_id,
     l_partkey as part_id,
     l_suppkey as supplier_id,

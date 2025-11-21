@@ -1,3 +1,6 @@
+{{ config(
+    materialized = 'ephemeral'
+) }}
 with sup as (        
     select      
         -- ids
