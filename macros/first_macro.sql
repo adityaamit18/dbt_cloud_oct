@@ -203,3 +203,9 @@ file_format=(type=csv compression = none null_if=(' ')) header=true; ") %}
 {% macro unload_stage1() %}
    {% do run_query('copy into @mkmotors_dev.staging.s3customers/customers.csv from stg_customers header=true ;') %}
 {% endmacro %}
+
+{% macro dbt_meta() -%}
+    '{{ invocation_id }}'::varchar as dbt_batch_id,
+    '{{ run_started_at }}'::timestamp as dbt_batch_ts
+{% endmacro %}
+
