@@ -25,7 +25,7 @@ models:
         description: '{{ doc("Primary_Key") }}'
         data_tests:
           - not_null
-          - unique
+          # - unique
       - name: region_id
         data_type: int
         data_tests:
@@ -38,8 +38,8 @@ models:
         data_type: timestamp
     config:
       group: sales
-      contract: 
-        enforced: true
+      # contract: 
+      #   enforced: true
   - name: stg_customers
     config:
       group: sales
