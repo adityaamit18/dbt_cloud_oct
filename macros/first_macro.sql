@@ -13,6 +13,7 @@
     {% do run_query(sql) %}
 {% endmacro %}
 
+
 {% macro show_emps() %}
 {%   do run_query("select employee_name from {{ ref('stg_employees') }}")%}
 {% endmacro %}
